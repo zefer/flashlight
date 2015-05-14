@@ -54,6 +54,19 @@ func main() {
 	}
 }
 
+func displayStatus() {
+	d, err := mpdStatus()
+	if err != nil {
+		return
+	}
+
+	if d["state"] == "play" {
+		displayPlaying(d)
+	} else {
+		displayIdle()
+	}
+}
+
 func trim(s string) string {
 	if len(s) > lcd.Cols {
 		return s[0:lcd.Cols]
@@ -61,18 +74,12 @@ func trim(s string) string {
 	return s
 }
 
-func displayStatus() {
-	d, err := mpdStatus()
-	if err != nil {
-		return
-	}
-
+func displayPlaying(state map[string]interface{}) {
 	var msg string
-
-	if d["Artist"] != nil && d["Title"] != nil {
-		msg = trim(d["Artist"].(string)) + "\n" + trim(d["Title"].(string))
-	} else if d["file"] != nil {
-		parts := strings.Split(d["file"].(string), "/")
+	if state["Artist"] != nil && state["Title"] != nil {
+		msg = trim(state["Artist"].(string)) + "\n" + trim(state["Title"].(string))
+	} else if state["file"] != nil {
+		parts := strings.Split(state["file"].(string), "/")
 		file := parts[len(parts)-1]
 		msg = trim(file)
 		if msg != file {
@@ -81,8 +88,11 @@ func displayStatus() {
 	} else {
 		msg = `¯\_(ツ)_/¯`
 	}
-
 	lcd.Display(msg)
+}
+
+func displayIdle() {
+	lcd.Clear()
 }
 
 func mpdStatus() (map[string]interface{}, error) {

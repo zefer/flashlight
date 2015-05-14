@@ -57,3 +57,7 @@ func Display(msg string) {
 	fmt.Fprint(os.Stdout, msg+"\n")
 	lcd.Message(msg)
 }
+
+func Clear() {
+	lcd.Clear()
+}
