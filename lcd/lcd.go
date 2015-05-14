@@ -12,12 +12,13 @@ import (
 
 // Pin number = GPIO number.
 var (
-	pinRs = 7
-	pinEn = 8
-	pinD4 = 25
-	pinD5 = 24
-	pinD6 = 23
-	pinD7 = 17
+	pinRs        = 7
+	pinEn        = 8
+	pinD4        = 25
+	pinD5        = 24
+	pinD6        = 23
+	pinD7        = 17
+	pinBacklight = 11
 
 	lcd  *characterdisplay.Display
 	Cols = 16
@@ -40,8 +41,8 @@ func Start() {
 		pinD5,
 		pinD6,
 		pinD7,
-		nil,
-		true,
+		pinBacklight,
+		false,
 		hd44780.RowAddress16Col,
 		hd44780.TwoLine,
 	)
@@ -56,9 +57,11 @@ func Start() {
 func Display(msg string) {
 	lcd.Clear()
 	fmt.Fprint(os.Stdout, msg+"\n")
+	lcd.BacklightOn()
 	lcd.Message(msg)
 }
 
 func Clear() {
+	lcd.BacklightOff()
 	lcd.Clear()
 }
