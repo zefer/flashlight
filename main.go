@@ -2,9 +2,11 @@ package main
 
 import (
 	"flag"
-	"net/http"
+	"os"
+	"os/signal"
 	"runtime"
 	"strings"
+	"syscall"
 
 	"github.com/zefer/mothership/mpd"
 	"github.com/zefer/mpdlcd/lcd"
@@ -15,12 +17,19 @@ var (
 	mpdAddr = flag.String("mpdaddr", "127.0.0.1:6600", "MPD address")
 )
 
-func banana(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-}
-
 func main() {
 	flag.Parse()
+
+	// Free-up GPIO resources on exit.
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt)
+	signal.Notify(c, syscall.SIGTERM)
+	go func() {
+		<-c
+		lcd.Stop()
+		os.Exit(1)
+	}()
+
 	lcd.Start()
 	defer lcd.Stop()
 
