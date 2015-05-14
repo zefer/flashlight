@@ -26,6 +26,7 @@ func main() {
 	signal.Notify(c, syscall.SIGTERM)
 	go func() {
 		<-c
+		lcd.Clear()
 		lcd.Stop()
 		os.Exit(1)
 	}()
@@ -63,7 +64,7 @@ func displayStatus() {
 	if d["state"] == "play" {
 		displayPlaying(d)
 	} else {
-		displayIdle()
+		lcd.Clear()
 	}
 }
 
@@ -89,10 +90,6 @@ func displayPlaying(state map[string]interface{}) {
 		msg = `¯\_(ツ)_/¯`
 	}
 	lcd.Display(msg)
-}
-
-func displayIdle() {
-	lcd.Clear()
 }
 
 func mpdStatus() (map[string]interface{}, error) {

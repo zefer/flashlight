@@ -24,6 +24,7 @@ var (
 )
 
 func Stop() {
+	lcd.Clear()
 	embd.CloseGPIO()
 }
 
