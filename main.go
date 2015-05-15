@@ -26,7 +26,6 @@ func main() {
 	signal.Notify(c, syscall.SIGTERM)
 	go func() {
 		<-c
-		lcd.Clear()
 		lcd.Stop()
 		os.Exit(1)
 	}()
