@@ -10,11 +10,16 @@ import (
 
 	"github.com/zefer/mothership/mpd"
 	"github.com/zefer/mpdlcd/lcd"
+	"gopkg.in/airbrake/glog.v1"
+	"gopkg.in/airbrake/gobrake.v1"
 )
 
 var (
-	client  *mpd.Client
-	mpdAddr = flag.String("mpdaddr", "127.0.0.1:6600", "MPD address")
+	client      *mpd.Client
+	mpdAddr     = flag.String("mpdaddr", "127.0.0.1:6600", "MPD address")
+	abProjectID = flag.Int64("abprojectid", 0, "Airbrake project ID")
+	abApiKey    = flag.String("abapikey", "", "Airbrake API key")
+	abEnv       = flag.String("abenv", "development", "Airbrake environment name")
 )
 
 func main() {
@@ -29,6 +34,12 @@ func main() {
 		lcd.Stop()
 		os.Exit(1)
 	}()
+
+	if *abProjectID > int64(0) && *abApiKey != "" {
+		airbrake := gobrake.NewNotifier(*abProjectID, *abApiKey)
+		airbrake.SetContext("environment", *abEnv)
+		glog.Gobrake = airbrake
+	}
 
 	lcd.Start()
 	defer lcd.Stop()
