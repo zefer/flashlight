@@ -4,7 +4,6 @@ import (
 	"flag"
 	"os"
 	"os/signal"
-	"runtime"
 	"strings"
 	"syscall"
 
@@ -60,9 +59,8 @@ func main() {
 
 	displayStatus()
 
-	for {
-		runtime.Gosched()
-	}
+	// Prevent program exit.
+	<-make(chan int)
 }
 
 func displayStatus() {
