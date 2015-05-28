@@ -1,4 +1,4 @@
-# mpdlcd
+# flashlight
 
 An LCD display for an MPD music server on the network.
 
@@ -7,7 +7,7 @@ Will work for any MPD server, but designed to compliment
 
 ## Usage
 
-  ./lcd -mpdaddr=somehost:6600
+  ./flashlight -mpdaddr=somehost:6600
 
 ## GPIO pins
 

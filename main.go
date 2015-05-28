@@ -7,8 +7,8 @@ import (
 	"strings"
 	"syscall"
 
+	"github.com/zefer/flashlight/lcd"
 	"github.com/zefer/mothership/mpd"
-	"github.com/zefer/mpdlcd/lcd"
 	"gopkg.in/airbrake/glog.v1"
 	"gopkg.in/airbrake/gobrake.v1"
 )
