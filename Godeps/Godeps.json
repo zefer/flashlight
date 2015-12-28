@@ -1,0 +1,36 @@
+{
+	"ImportPath": "github.com/zefer/flashlight",
+	"GoVersion": "go1.5",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/golang/glog",
+			"Rev": "fca8c8854093a154ff1eb580aae10276ad6b1b5f"
+		},
+		{
+			"ImportPath": "github.com/kidoman/embd",
+			"Rev": "5065e49386ae53e601ef7a300934a37cc21fd3b6"
+		},
+		{
+			"ImportPath": "github.com/zefer/gompd/mpd",
+			"Comment": "release-151-gf0351de",
+			"Rev": "f0351de92ad948620dd36d525ba26b06c2be14a1"
+		},
+		{
+			"ImportPath": "github.com/zefer/mothership/mpd",
+			"Rev": "43fb1b8471a3a69640f7ead6cc339e6b17849791"
+		},
+		{
+			"ImportPath": "gopkg.in/airbrake/glog.v1",
+			"Comment": "v1",
+			"Rev": "d02413bc7ab4fc1572dc112f0873c8f824069367"
+		},
+		{
+			"ImportPath": "gopkg.in/airbrake/gobrake.v1",
+			"Comment": "v1.1",
+			"Rev": "f12667a6c3bda272083682a04a05ee7a14e55378"
+		}
+	]
+}
