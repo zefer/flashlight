@@ -1,0 +1,22 @@
+#!/bin/sh
+
+server_host=music
+
+export GO15VENDOREXPERIMENT=1
+
+echo 'Compiling for Rasperry Pi'
+# GOOS=linux GOARM=6 GOARCH=arm go build
+# GOOS=linux GOARM=6 GOARCH=arm go build
+GOOS=linux GOARM=7 GOARCH=arm go build
+
+echo 'Sending binary to music server'
+scp flashlight $server_host:/home/joe
+
+echo 'Running commands on music server'
+ssh $server_host -t '\
+  sudo systemctl stop flashlight \
+  && sleep 1 \
+  && sudo mv /home/joe/flashlight /usr/bin \
+  && sudo systemctl start flashlight \
+  && sleep 1
+'
