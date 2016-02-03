@@ -11,7 +11,7 @@
 		},
 		{
 			"ImportPath": "github.com/kidoman/embd",
-			"Rev": "5065e49386ae53e601ef7a300934a37cc21fd3b6"
+			"Rev": "bfcd1345fe4e3d17ca82475c0c2f3d53120f87a9"
 		},
 		{
 			"ImportPath": "github.com/zefer/gompd/mpd",
