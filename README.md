@@ -17,8 +17,8 @@ See `lcd/lcd.go` for GPIO pin mappings.
 
 ## Examples
 
-![](https://dl.dropboxusercontent.com/u/89410/project_images/mpdlcd-1.jpg)
-![](https://dl.dropboxusercontent.com/u/89410/project_images/mpdlcd-2.jpg)
+![](https://user-images.githubusercontent.com/101193/28341797-0bc76894-6c0d-11e7-83cb-b49263554768.jpg)
+![](https://user-images.githubusercontent.com/101193/28341800-1317cc7e-6c0d-11e7-89da-a37be3303e06.jpg)
 
 ## Deploy
 
