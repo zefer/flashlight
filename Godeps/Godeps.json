@@ -1,9 +1,7 @@
 {
 	"ImportPath": "github.com/zefer/flashlight",
-	"GoVersion": "go1.5",
-	"Packages": [
-		"./..."
-	],
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
 	"Deps": [
 		{
 			"ImportPath": "github.com/golang/glog",
@@ -11,7 +9,23 @@
 		},
 		{
 			"ImportPath": "github.com/kidoman/embd",
-			"Rev": "bfcd1345fe4e3d17ca82475c0c2f3d53120f87a9"
+			"Rev": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62"
+		},
+		{
+			"ImportPath": "github.com/kidoman/embd/controller/hd44780",
+			"Rev": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62"
+		},
+		{
+			"ImportPath": "github.com/kidoman/embd/host/generic",
+			"Rev": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62"
+		},
+		{
+			"ImportPath": "github.com/kidoman/embd/host/rpi",
+			"Rev": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62"
+		},
+		{
+			"ImportPath": "github.com/kidoman/embd/interface/display/characterdisplay",
+			"Rev": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62"
 		},
 		{
 			"ImportPath": "github.com/zefer/gompd/mpd",
@@ -20,7 +34,7 @@
 		},
 		{
 			"ImportPath": "github.com/zefer/mothership/mpd",
-			"Rev": "43fb1b8471a3a69640f7ead6cc339e6b17849791"
+			"Rev": "11e9ff18725d1ac6cfeaa2017564638675976d4c"
 		},
 		{
 			"ImportPath": "gopkg.in/airbrake/glog.v1",
@@ -28,9 +42,19 @@
 			"Rev": "d02413bc7ab4fc1572dc112f0873c8f824069367"
 		},
 		{
+			"ImportPath": "gopkg.in/airbrake/glog.v2",
+			"Comment": "v2.0.8",
+			"Rev": "5c42a94662437ea6597bbf72fa4740f9fc6f6f96"
+		},
+		{
 			"ImportPath": "gopkg.in/airbrake/gobrake.v1",
 			"Comment": "v1.1",
 			"Rev": "f12667a6c3bda272083682a04a05ee7a14e55378"
+		},
+		{
+			"ImportPath": "gopkg.in/airbrake/gobrake.v2",
+			"Comment": "v2.0.9",
+			"Rev": "668876711219e8b0206e2994bf0a59d889c775aa"
 		}
 	]
 }
