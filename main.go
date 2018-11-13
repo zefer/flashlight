@@ -9,8 +9,8 @@ import (
 
 	"github.com/zefer/flashlight/lcd"
 	"github.com/zefer/mothership/mpd"
-	"gopkg.in/airbrake/glog.v1"
-	"gopkg.in/airbrake/gobrake.v1"
+	"github.com/airbrake/glog"
+	"github.com/airbrake/gobrake"
 )
 
 var (
@@ -36,7 +36,12 @@ func main() {
 
 	if *abProjectID > int64(0) && *abApiKey != "" {
 		airbrake := gobrake.NewNotifier(*abProjectID, *abApiKey)
-		airbrake.SetContext("environment", *abEnv)
+		defer airbrake.Close()
+		defer airbrake.NotifyOnPanic()
+		airbrake.AddFilter(func(n *gobrake.Notice) *gobrake.Notice {
+			n.Context["environment"] = *abEnv
+			return n
+		})
 		glog.Gobrake = airbrake
 	}
 

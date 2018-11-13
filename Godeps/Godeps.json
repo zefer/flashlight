@@ -1,8 +1,28 @@
 {
 	"ImportPath": "github.com/zefer/flashlight",
-	"GoVersion": "go1.8",
+	"GoVersion": "go1.11",
 	"GodepVersion": "v79",
 	"Deps": [
+		{
+			"ImportPath": "github.com/airbrake/glog",
+			"Comment": "v3.0.0-1-g6a45d52",
+			"Rev": "6a45d5271e31f82b24e3f2567d5a20ef3afa2395"
+		},
+		{
+			"ImportPath": "github.com/airbrake/gobrake",
+			"Comment": "v3.6.1-27-gd8ce78c",
+			"Rev": "d8ce78ccfb6ae5c35be07e90c2a48a05fc0ad78a"
+		},
+		{
+			"ImportPath": "github.com/airbrake/gobrake/internal/lrucache",
+			"Comment": "v3.6.1-27-gd8ce78c",
+			"Rev": "d8ce78ccfb6ae5c35be07e90c2a48a05fc0ad78a"
+		},
+		{
+			"ImportPath": "github.com/caio/go-tdigest",
+			"Comment": "v2.3.0",
+			"Rev": "f3c8d94f65d3096ac96eda54ffcd10c0fe1477f1"
+		},
 		{
 			"ImportPath": "github.com/golang/glog",
 			"Rev": "fca8c8854093a154ff1eb580aae10276ad6b1b5f"
@@ -28,6 +48,11 @@
 			"Rev": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62"
 		},
 		{
+			"ImportPath": "github.com/pkg/errors",
+			"Comment": "v0.8.0-17-g059132a",
+			"Rev": "059132a15dd08d6704c67711dae0cf35ab991756"
+		},
+		{
 			"ImportPath": "github.com/zefer/gompd/mpd",
 			"Comment": "release-151-gf0351de",
 			"Rev": "f0351de92ad948620dd36d525ba26b06c2be14a1"
@@ -37,19 +62,9 @@
 			"Rev": "11e9ff18725d1ac6cfeaa2017564638675976d4c"
 		},
 		{
-			"ImportPath": "gopkg.in/airbrake/glog.v1",
-			"Comment": "v1",
-			"Rev": "d02413bc7ab4fc1572dc112f0873c8f824069367"
-		},
-		{
 			"ImportPath": "gopkg.in/airbrake/glog.v2",
 			"Comment": "v2.0.8",
 			"Rev": "5c42a94662437ea6597bbf72fa4740f9fc6f6f96"
-		},
-		{
-			"ImportPath": "gopkg.in/airbrake/gobrake.v1",
-			"Comment": "v1.1",
-			"Rev": "f12667a6c3bda272083682a04a05ee7a14e55378"
 		},
 		{
 			"ImportPath": "gopkg.in/airbrake/gobrake.v2",
