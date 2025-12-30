@@ -5,8 +5,9 @@ go 1.25.5
 require (
 	github.com/airbrake/glog v3.0.2+incompatible
 	github.com/airbrake/gobrake v3.7.4+incompatible
-	github.com/kidoman/embd v0.0.0-20170508013040-d3d8c0c5c68d
 	github.com/zefer/mothership v0.0.0-20240624113711-32aa26f3e6a4
+	periph.io/x/conn/v3 v3.7.2
+	periph.io/x/host/v3 v3.8.5
 )
 
 require (
