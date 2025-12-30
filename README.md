@@ -9,19 +9,37 @@ Will work for any MPD server, but designed to compliment
 
 - Go 1.23 or later
 - Raspberry Pi (2, 3, 4, Zero, or compatible)
-- HD44780-compatible 16x2 character LCD display
-- GPIO wiring as specified below
+- HD44780-compatible 16x2 I2C character LCD display
+- I2C wiring as specified below
 
-## GPIO Pin Mappings
+## I2C LCD Wiring
 
-Pin configuration (BCM GPIO numbers):
+The LCD uses an I2C backpack (PCF8574) for 4-wire connection via **software I2C on bus 4**:
 
-- RS (Register Select): GPIO 7
-- EN (Enable): GPIO 8
-- D4-D7 (Data pins): GPIO 25, 24, 23, 17
-- Backlight: GPIO 11
+| LCD Pin | Wire Color | Purpose | GPIO | Physical Pin |
+|---------|------------|---------|------|--------------|
+| VSS | Black | Ground | - | Pin 6 (or any GND) |
+| VDD | Red | 5V Power | - | Pin 2 or 4 |
+| SDA | White | I2C Data | GPIO 23 | Pin 16 |
+| SCL | Brown | I2C Clock | GPIO 24 | Pin 18 |
 
-See `lcd/lcd.go` for the complete pin configuration.
+I2C address: `0x27` (bus 4)
+
+### Required Configuration
+
+Add this line to `/boot/config.txt` to enable software I2C on GPIO 23/24:
+
+```
+dtoverlay=i2c-gpio,bus=4,i2c_gpio_sda=23,i2c_gpio_scl=24
+```
+
+Reboot after adding this configuration.
+
+See `lcd/lcd.go` for the complete I2C configuration.
+
+## HiFiBerry Compatibility
+
+This project uses **software I2C on bus 4** (GPIO 23/24) instead of the standard hardware I2C bus 1 (GPIO 2/3). This allows the LCD to coexist with the HiFiBerry DAC+ which uses bus 1 for its PCM512x audio codec (address `0x4d`). Both devices can now operate simultaneously without conflicts.
 
 ## Building
 

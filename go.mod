@@ -17,5 +17,6 @@ require (
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/sirupsen/logrus v1.6.0 // indirect
 	github.com/zefer/gompd v0.0.0-20150211052237-f0351de92ad9 // indirect
-	golang.org/x/sys v0.0.0-20191120155948-bd437916bb0e // indirect
+	golang.org/x/sys v0.29.0 // indirect
+	periph.io/x/devices/v3 v3.7.4 // indirect
 )
