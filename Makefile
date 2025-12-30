@@ -2,7 +2,7 @@
 
 # Configuration
 BINARY_NAME := flashlight
-SERVER_HOST ?= music
+SERVER_HOST ?= livingroom
 SERVER_USER ?= joe
 INSTALL_PATH := /usr/bin/$(BINARY_NAME)
 SERVICE_NAME := flashlight
