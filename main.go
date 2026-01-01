@@ -7,10 +7,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/zefer/flashlight/lcd"
-	"github.com/zefer/mothership/mpd"
 	"github.com/airbrake/glog"
 	"github.com/airbrake/gobrake"
+	"github.com/zefer/flashlight/lcd"
+	"github.com/zefer/mothership/mpd"
 )
 
 var (
@@ -92,6 +92,8 @@ func displayPlaying(state map[string]interface{}) {
 	var msg string
 	if state["Artist"] != nil && state["Title"] != nil {
 		msg = trim(state["Artist"].(string)) + "\n" + trim(state["Title"].(string))
+	} else if state["Title"] != nil {
+		msg = trim(state["Title"].(string))
 	} else if state["file"] != nil {
 		parts := strings.Split(state["file"].(string), "/")
 		file := parts[len(parts)-1]
