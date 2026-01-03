@@ -93,6 +93,8 @@ func displayPlaying(state map[string]interface{}) {
 	if state["Artist"] != nil && state["Title"] != nil {
 		msg = trim(state["Artist"].(string)) + "\n" + trim(state["Title"].(string))
 	} else if state["Title"] != nil {
+		// TODO: consider split by "Artist - Title" on to 2 lines if that's a
+		// common Title format.
 		msg = trim(state["Title"].(string))
 	} else if state["file"] != nil {
 		parts := strings.Split(state["file"].(string), "/")

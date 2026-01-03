@@ -14,14 +14,15 @@ Will work for any MPD server, but designed to compliment
 
 ## I2C LCD Wiring
 
-The LCD uses an I2C backpack (PCF8574) for 4-wire connection via **software I2C on bus 4**:
+The LCD uses an I2C backpack (PCF8574) for 4-wire connection via **software I2C
+on bus 4**:
 
-| LCD Pin | Wire Color | Purpose | GPIO | Physical Pin |
-|---------|------------|---------|------|--------------|
-| VSS | Black | Ground | - | Pin 6 (or any GND) |
-| VDD | Red | 5V Power | - | Pin 2 or 4 |
-| SDA | White | I2C Data | GPIO 23 | Pin 16 |
-| SCL | Brown | I2C Clock | GPIO 24 | Pin 18 |
+| LCD Pin | Purpose | GPIO | Physical Pin |
+|---------|---------|------|--------------|
+| VSS | Ground | - | Pin 6 (or any GND) |
+| VDD | 5V Power | - | Pin 2 or 4 |
+| SDA | I2C Data | GPIO 23 | Pin 16 |
+| SCL | I2C Clock | GPIO 24 | Pin 18 |
 
 I2C address: `0x27` (bus 4)
 
@@ -37,9 +38,12 @@ Reboot after adding this configuration.
 
 See `lcd/lcd.go` for the complete I2C configuration.
 
-## HiFiBerry Compatibility
+## HiFiBerry & Other I2C Device Compatibility
 
-This project uses **software I2C on bus 4** (GPIO 23/24) instead of the standard hardware I2C bus 1 (GPIO 2/3). This allows the LCD to coexist with the HiFiBerry DAC+ which uses bus 1 for its PCM512x audio codec (address `0x4d`). Both devices can now operate simultaneously without conflicts.
+This project uses **software I2C on bus 4** (GPIO 23/24) instead of the standard
+hardware I2C bus 1 (GPIO 2/3). This allows the LCD to coexist with the HiFiBerry
+DAC+ which uses bus 1 for its PCM512x audio codec (address `0x4d`). Both devices
+can now operate simultaneously without conflicts.
 
 ## Building
 
@@ -50,10 +54,6 @@ make build-arm
 ```
 
 This creates a statically-linked ARM binary for Raspberry Pi 2/Zero (ARMv7).
-
-### Local build
-
-Note: Local builds on macOS/Windows will fail due to Linux-specific GPIO code. Always cross-compile for the target platform.
 
 ## Usage
 
@@ -99,7 +99,7 @@ SERVER_HOST=mypi SERVER_USER=pi make deploy
 ```
 
 Default values:
-- `SERVER_HOST`: music
+- `SERVER_HOST`: livingroom
 - `SERVER_USER`: joe
 
 ### Check service status
